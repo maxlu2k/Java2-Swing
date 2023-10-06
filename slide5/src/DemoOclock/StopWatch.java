@@ -59,7 +59,17 @@ public class StopWatch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        // TODO add your handling code here:
+        new Thread(() -> {
+            try {
+                btnStart.setText("0");
+                for (int i = 9; i > 0; i--) {
+                    btnStart.setText(i + "");
+                    Thread.sleep(1000);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**
