@@ -23,6 +23,7 @@ public class QLDform extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         tblQL.setModel(model);
         filToTable();
+
     }
 
     public void filToTable() {
@@ -65,7 +66,15 @@ public class QLDform extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblQL);
 
         btnSave.setText("Save");
@@ -142,7 +151,12 @@ public class QLDform extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnOpen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpen1ActionPerformed
-        
+        try {
+            sc.loadData();
+            filToTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnOpen1ActionPerformed
 
     /**

@@ -5,7 +5,6 @@
 package slide5;
 
 import java.io.FileInputStream;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 
 /**
@@ -20,7 +19,7 @@ public class ReadObject {
         Person[] list = (Person[]) oi.readObject();
         fi.close();
         for (Person p : list) {
-            System.out.print(p + "");
+            System.out.print(p.toString() + "");
         }
     }
 }

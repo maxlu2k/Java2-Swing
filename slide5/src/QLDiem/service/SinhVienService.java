@@ -20,10 +20,10 @@ public class SinhVienService {
     List<SinhVien> list = new ArrayList<>();
 
     public SinhVienService() {
-        list.add(new SinhVien("sv1", "Manh Dũng", 10));
-        list.add(new SinhVien("sv2", "Binh Minh", 5));
-        list.add(new SinhVien("sv3", "Long", 8));
-        list.add(new SinhVien("sv4", "Kien", 2));
+//        list.add(new SinhVien("sv1", "Manh Dũng", 10));
+//        list.add(new SinhVien("sv2", "Binh Minh", 5));
+//        list.add(new SinhVien("sv3", "Long", 8));
+//        list.add(new SinhVien("sv4", "Kien", 2));
     }
 
     public List<SinhVien> getAll() {
@@ -36,6 +36,7 @@ public class SinhVienService {
             ObjectInputStream oi = new ObjectInputStream(fl);
             list = (List<SinhVien>) oi.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
