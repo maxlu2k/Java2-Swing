@@ -4,6 +4,10 @@
  */
 package DemoOclock;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
+
 /**
  *
  * @author alvin
@@ -60,16 +64,25 @@ public class StopWatch extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         new Thread(() -> {
-            try {
-                btnStart.setText("0");
-                for (int i = 9; i > 0; i--) {
-                    btnStart.setText(i + "");
+//            btnStart.setText("0");
+//            for (int i = 9; i > 0; i--) {
+//                btnStart.setText(i + "");
+//                Thread.sleep(1000);
+//            }
+            while (true) {
+                try {
+                    Date now = new Date();
+                    SimpleDateFormat formater = new SimpleDateFormat();
+                    formater.applyPattern("hh:mm:ss aa");
+                    String time = formater.format(now);
+                    btnStart.setText(time);
                     Thread.sleep(1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-        }).start();
+        }
+        ).start();
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**
@@ -103,6 +116,7 @@ public class StopWatch extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StopWatch().setVisible(true);
+
             }
         });
     }

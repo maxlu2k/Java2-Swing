@@ -55,6 +55,11 @@ public class QLDform extends javax.swing.JFrame {
         jLabel1.setText("TÌm kiếm");
 
         btnFind.setText("find");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindActionPerformed(evt);
+            }
+        });
 
         tblQL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,6 +163,10 @@ public class QLDform extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnOpen1ActionPerformed
+
+    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
+        
+    }//GEN-LAST:event_btnFindActionPerformed
 
     /**
      * @param args the command line arguments
